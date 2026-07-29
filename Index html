@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aiman Creation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<h2 id="welcome"></h2>
+<header class="header"><button onclick="logoutUser()">Logout</button>
+<div class="logo">
+<h1>Aiman Creation</h1>
+</div>
+
+<div class="search">
+<input type="text" placeholder="Search Kurti, Suit, Top...">
+<button>Search</button>
+</div>
+<div class="menu"><a href="wishlist.html">❤️ Wishlist</a><a href="cart.html">🛒 Cart</a>
+<a href="#">👤 Login</a>
+</div>
+
+</header>
+
+<nav class="navbar">
+<a href="#">Home</a>
+<a href="#">Kurti</a>
+<a href="#">Suit</a>
+<a href="#">Top</a>
+<a href="#">Contact</a>
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+<h2>New Collection 2026</h2>
+<p>Premium Kurti, Suit & Top Collection</p>
+<button>Shop Now</button>
+</div>
+
+</section>
+
+<section class="products">
+
+<h2>Featured Products</h2>
+
+<div class="product-grid">
+
+<div class="card">
+<img src="https://picsum.photos/250/300?random=1">
+<span class="discount">20% OFF</span>
+<h3>Pink Kurti</h3>
+<p class="rating">⭐⭐⭐⭐⭐ (4.8)</p>
+<p>₹799</p>
+<button onclick="addToCart('Pink Kurti')">Add to Cart</button>
+<button onclick="buyNow('Pink Kurti')">Buy Now</button>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/250/300?random=2">
+<span class="discount">15% OFF</span>
+<h3>Designer Suit</h3>
+<p class="rating">⭐⭐⭐⭐⭐ (4.9)</p>
+<p>₹1299</p>
+<button onclick="addToCart('Designer Suit')">Add to Cart</button>
+<button onclick="buyNow('Designer Suit')">Buy Now</button>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/250/300?random=3">
+<span class="discount">10% OFF</span>
+<h3>Stylish Top</h3>
+<p class="rating">⭐⭐⭐⭐⭐ (4.7)</p>
+<p>₹599</p>
+<button onclick="addToCart('Stylish Top')">Add to Cart</button>
+<button onclick="buyNow('Stylish Top')">Buy Now</button>
+</div>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<div class="footer-box">
+<h3>Aiman Creation</h3>
+<p>Premium Fashion Store</p>
+</div>
+
+<div class="footer-box">
+<h3>Quick Links</h3>
+<p>Home</p>
+<p>Kurti</p>
+<p>Suit</p>
+<p>Top</p>
+</div>
+
+<div class="footer-box">
+<h3>Contact</h3>
+<p>📞 +91 XXXXX XXXXX</p>
+<p>📧 aimancreation@gmail.com</p>
+<p>📍 Bihar, India</p>
+</div>
+
+<p>Fashion for Everyone ❤️</p>
+<p>© 2026 All Rights Reserved.</p>
+
+</footer>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
