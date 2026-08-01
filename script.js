@@ -1,5 +1,4 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
 import {
   getFirestore,
   collection,
@@ -7,47 +6,51 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDCVO-BMTMXOsTOTt-7SZuvdjj1PECG72o",
+  authDomain: "aiman-creation-20865.firebaseapp.com",
+  projectId: "aiman-creation-20865",
+  storageBucket: "aiman-creation-20865.firebasestorage.app",
+  messagingSenderId: "639010047446",
+  appId: "1:639010047446:web:b83d01b56ef531b9751077"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 async function loadProducts() {
+  const container = document.getElementById("dynamicProducts");
+  if (!container) return;
 
-  const productContainer = document.getElementById("products");
-  productContainer.innerHTML = "";
+  try {
+    const snapshot = await getDocs(collection(db, "products"));
 
-  const querySnapshot = await getDocs(collection(db, "products"));
+    snapshot.forEach((doc) => {
+      const data = doc.data();
 
-  querySnapshot.forEach((doc) => {
+      const card = document.createElement("div");
+      card.className = "card";
 
-    const product = doc.data();
+      card.innerHTML = `
+        <img src="${data.image}">
+        <h3>${data.name}</h3>
+        <p>₹${data.price}</p>
+        <button onclick="addToCart('${data.name}')">Add to Cart</button>
+        <button onclick="buyNow('${data.name}')">Buy Now</button>
+      `;
 
-    productContainer.innerHTML += `
-      <div class="product-card">
-        <img src="${product.image}" width="200">
-        <h3>${product.name}</h3>
-        <p>₹${product.price}</p>
-
-        <button onclick="addToCart('${product.name}')">
-          Add to Cart
-        </button>
-
-        <button onclick="buyNow('${product.name}')">
-          Buy Now
-        </button>
-
-      </div>
-    `;
-
-  });
-
+      container.appendChild(card);
+    });
+  } catch (error) {
+    console.error("Error loading products:", error);
+  }
 }
 
-loadProducts();
+window.addToCart = function (name) {
+  alert(`${name} cart mein add ho gaya`);
+};
+
+window.buyNow = function (name) {
+  alert(`${name} ke liye order kiya jaa raha hai`);
+};
+
+loadProducts()
